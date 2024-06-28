@@ -21,7 +21,8 @@ RUN cmake ../llvm \
   -DLLVM_ENABLE_PROJECTS="clang;lld" \
   -DLLVM_TARGETS_TO_BUILD="X86;AArch64;RISCV" \
   -DLLVM_LINK_LLVM_DYLIB=ON
-RUN make -j$(nproc)
+# RUN make -j$(nproc)
+RUN make -j2
 RUN make install
 
 FROM docker.io/buildpack-deps:bookworm
